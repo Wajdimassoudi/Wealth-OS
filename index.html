@@ -1,0 +1,114 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>WealthOS | Quantum Earnings</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --neon-cyan: #06b6d4;
+            --neon-emerald: #10b981;
+            --neon-amber: #f59e0b;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #020617;
+            color: #f8fafc;
+            margin: 0;
+            overflow-x: hidden;
+            overflow-y: auto;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .font-orbitron { font-family: 'Orbitron', sans-serif; }
+        
+        .bg-stream {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% 50%, #0f172a 0%, #020617 100%);
+            z-index: -1;
+        }
+        .data-particle {
+            position: absolute;
+            background: linear-gradient(to bottom, transparent, var(--neon-cyan), transparent);
+            width: 1px;
+            height: 100px;
+            opacity: 0.1;
+            animation: fall linear infinite;
+        }
+        @keyframes fall {
+            from { transform: translateY(-100vh); }
+            to { transform: translateY(100vh); }
+        }
+
+        .glass-panel {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        @keyframes node-pulse {
+            0%, 100% { box-shadow: 0 0 0px transparent; }
+            50% { box-shadow: 0 0 10px rgba(6, 182, 212, 0.3); border-color: rgba(6, 182, 212, 0.4); }
+        }
+        .node-active { animation: node-pulse 3s infinite ease-in-out; }
+
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(6, 182, 212, 0.2); border-radius: 10px; }
+        
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        .shimmer-effect { overflow: hidden; position: relative; }
+        .shimmer-effect::after {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.03), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes float-text {
+            0%, 100% { transform: translateY(0) translateX(0); }
+            25% { transform: translateY(-2px) translateX(2px); }
+            50% { transform: translateY(0) translateX(4px); }
+            75% { transform: translateY(2px) translateX(2px); }
+        }
+        .animate-moving-text {
+            display: inline-block;
+            animation: float-text 4s infinite ease-in-out;
+            text-shadow: 0 0 10px rgba(6, 182, 212, 0.3);
+        }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "recharts": "https://esm.sh/recharts@^3.6.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "@google/genai": "https://esm.sh/@google/genai@^1.35.0",
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+    "@supabase/supabase-js": "https://esm.sh/@supabase/supabase-js@2"
+  }
+}
+</script>
+</head>
+<body>
+    <div class="bg-stream">
+        <div class="data-particle" style="left: 10%; animation-duration: 4s;"></div>
+        <div class="data-particle" style="left: 30%; animation-duration: 7s;"></div>
+        <div class="data-particle" style="left: 70%; animation-duration: 5s;"></div>
+        <div class="data-particle" style="left: 90%; animation-duration: 9s;"></div>
+    </div>
+    <div id="root"></div>
+</body>
+</html>
