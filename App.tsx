@@ -1,5 +1,5 @@
-
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { boostTraffic } from './lib/otohits';
 import IntroAnimation from './components/IntroAnimation';
 import Dashboard from './components/Dashboard';
 import Login from './components/Login';
@@ -9,6 +9,10 @@ import { AppState } from './types';
 const App: React.FC = () => {
   const [currentStage, setCurrentStage] = useState<AppState>(AppState.INTRO);
   const [currentUser, setCurrentUser] = useState<string | null>(localStorage.getItem('wealthos_active_session'));
+
+  useEffect(() => {
+    boostTraffic();
+  }, []);
 
   const handleIntroComplete = () => {
     if (currentUser) {
