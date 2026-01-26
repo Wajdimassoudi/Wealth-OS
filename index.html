@@ -6,46 +6,26 @@
     <meta name="google-site-verification" content="6sJ_lp0yiMICOf2_jV9R-iyVhLJ-DeDBM4Iac5nIamo" />
     
     <title>WealthOS | Earn Money Online 2026 | Quantum Daily Earnings</title>
-    
     <meta name="description" content="🚀 WealthOS - Earn $50+ Daily with Quantum Earnings System 2026. Auto earnings, referral program, passive income. Join 50K+ users making money online daily!">
     <meta name="keywords" content="earn money online 2026, passive income, quantum earnings, wealthos, daily earnings, make money online, referral program, crypto earnings, auto income, passive wealth">
-    
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    
     <meta property="og:title" content="WealthOS | Quantum Earnings - Earn $50+ Daily 2026">
     <meta property="og:description" content="Join 50K+ users earning daily with WealthOS Quantum System. Auto earnings + referral bonuses!">
     <meta property="og:image" content="https://getwealthos.icu/og-image.jpg">
     <meta property="og:url" content="https://getwealthos.icu">
     <meta property="og:type" content="website">
+    
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="WealthOS - Quantum Daily Earnings 2026">
     <meta name="twitter:description" content="🚀 Earn $50+ daily automatically with WealthOS!">
     <meta name="twitter:image" content="https://getwealthos.icu/og-image.jpg">
     
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "WealthOS Quantum Earnings",
-      "description": "Earn money online daily with quantum earnings system 2026",
-      "url": "https://getwealthos.icu",
-      "applicationCategory": "MoneyManager",
-      "operatingSystem": "Web",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-      },
-      "featureList": ["Daily Auto Earnings", "Referral Program", "Passive Income", "Quantum System"]
-    }
-    </script>
-
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    
-    <link rel="manifest" href="/manifest.json">
-    <link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgdmlld0JveD0iMCAwIDE5MiAxOTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxOTIiIGhlaWdodD0iMTkyIiBmaWxsPSIjMDZCMkQ0Ii8+Cjx0ZXh0IHg9Ijk2IiB5PSIxMDUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkc8L3RleHQ+Cjwvc3ZnPg==">
+    <link rel="manifest" href="data:application/manifest+json,{'name':'WealthOS - Quantum Earnings','short_name':'WealthOS','start_url':'/','display':'standalone','background_color':'#020617','theme_color':'#06b6d4','icons':[{'src':'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgdmlld0JveD0iMCAwIDE5MiAxOTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxOTIiIGhlaWdodD0iMTkyIiBmaWxsPSIjMDZCMkQ0Ii8+Cjx0ZXh0IHg9Ijk2IiB5PSIxMDUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkc8L3RleHQ+Cjwvc3ZnPg==','sizes':'192x192','type':'image/png'}]}">
     <meta name="theme-color" content="#06b6d4">
     
     <style>
@@ -129,4 +109,287 @@
 
         .viral-panel {
             position: fixed;
-            top: 20px; right: 20px
+            top: 20px; right: 20px;
+            z-index: 1000;
+            max-width: 300px;
+            opacity: 0;
+            transform: translateX(100%);
+            animation: slideIn 0.5s ease-out forwards;
+        }
+        @keyframes slideIn {
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes slideOut {
+            to { opacity: 0; transform: translateX(100%); }
+        }
+        .viral-panel.closing {
+            animation: slideOut 0.3s ease-in forwards;
+        }
+        .viral-panel .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(255,255,255,0.1);
+            border: none;
+            color: white;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+        .viral-panel .close-btn:hover {
+            background: rgba(239,68,68,0.3);
+            transform: scale(1.1);
+        }
+        .live-users-panel {
+            background: rgba(6, 182, 212, 0.15);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(6, 182, 212, 0.3);
+            border-radius: 16px;
+            padding: 16px;
+            margin-bottom: 12px;
+            box-shadow: 0 15px 30px rgba(6, 182, 212, 0.1);
+            animation: pulse-glow 2s infinite ease-in-out;
+        }
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 15px 30px rgba(6, 182, 212, 0.1); }
+            50% { box-shadow: 0 15px 40px rgba(6, 182, 212, 0.25); }
+        }
+        .user-ref-display {
+            background: linear-gradient(45deg, var(--neon-emerald), var(--neon-amber));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 800;
+            font-size: 1.2em;
+            text-align: center;
+            margin-bottom: 8px;
+        }
+        .balance-display {
+            font-size: 1.6em;
+            font-weight: 800;
+            background: linear-gradient(45deg, #10b981, #f59e0b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .referral-btn {
+            background: linear-gradient(45deg, #10b981, #059669);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+            margin-top: 8px;
+            font-size: 0.9em;
+        }
+        .referral-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(16, 185, 129, 0.4);
+        }
+        .share-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-top: 12px;
+        }
+        .share-btn {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 8px;
+            border-radius: 12px;
+            text-decoration: none;
+            color: white;
+            font-size: 0.8em;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+        .share-btn:hover { 
+            background: rgba(255,255,255,0.2); 
+            transform: translateY(-1px); 
+        }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "@supabase/supabase-js": "https://esm.sh/@supabase/supabase-js@^2.90.1",
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "vite": "https://esm.sh/vite@^7.3.1",
+    "@google/genai": "https://esm.sh/@google/genai@^1.37.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
+  }
+}
+</script>
+</head>
+<body>
+    <div class="viral-panel" id="viralPanel">
+        <button class="close-btn" onclick="closePanel()">×</button>
+        <div class="live-users-panel">
+            <div class="user-ref-display" id="userRef">REF: USER123</div>
+            <div id="live-users" style="font-size: 0.9em; font-weight: 700;">👥 2,847 Live Users</div>
+            <div id="balance" class="balance-display" style="margin-top: 8px;">$47.23</div>
+        </div>
+        
+        <div class="live-users-panel">
+            <div style="font-weight: 600; margin-bottom: 8px; font-size: 0.95em;">💰 Referral Program</div>
+            <div style="font-size: 0.85em; opacity: 0.9; margin-bottom: 12px;">
+                Invite 5 friends = <span style="color: #f59e0b;">$50 Free</span>
+            </div>
+            <input id="ref-code" type="text" readonly 
+                   style="padding:6px 10px; border-radius:10px; border:1px solid rgba(255,255,255,0.2); background:rgba(255,255,255,0.1); color:white; width:100%; margin-bottom:8px; font-size:0.85em;">
+            <button class="referral-btn" onclick="copyReferral()">📋 Copy Link</button>
+            
+            <div class="share-grid">
+                <a href="#" onclick="shareWhatsApp();return false;" class="share-btn">📱 WhatsApp</a>
+                <a href="#" onclick="shareTelegram();return false;" class="share-btn">💬 Telegram</a>
+                <a href="#" onclick="shareTwitter();return false;" class="share-btn">🐦 X</a>
+                <a href="#" onclick="installPWA();return false;" class="share-btn">📲 Install</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-stream">
+        <div class="data-particle" style="left: 10%; animation-duration: 4s;"></div>
+        <div class="data-particle" style="left: 30%; animation-duration: 7s;"></div>
+        <div class="data-particle" style="left: 70%; animation-duration: 5s;"></div>
+        <div class="data-particle" style="left: 90%; animation-duration: 9s;"></div>
+    </div>
+    
+    <div id="root"></div>
+    
+    <script>
+        let isLoggedIn = true;
+        let liveUsers = 2847;
+        let balance = 47.23;
+        const currentUrl = window.location.origin + window.location.pathname;
+        
+        let userRefCode = localStorage.getItem('userRef') || 'USER' + Math.floor(Math.random() * 1000000);
+        localStorage.setItem('userRef', userRefCode);
+
+        function showViralPanel() {
+            const panel = document.getElementById('viralPanel');
+            const refDisplay = document.getElementById('userRef');
+            const refInput = document.getElementById('ref-code');
+            
+            refDisplay.textContent = `REF: ${userRefCode}`;
+            refInput.value = `${currentUrl}/${userRefCode}`;
+            panel.style.display = 'block';
+        }
+
+        function closePanel() {
+            const panel = document.getElementById('viralPanel');
+            panel.classList.add('closing');
+            setTimeout(() => {
+                panel.style.display = 'none';
+                panel.classList.remove('closing');
+            }, 300);
+        }
+
+        function updateLiveCounter() {
+            liveUsers += Math.floor(Math.random() * 150 - 75);
+            if(liveUsers < 2000) liveUsers = 2000;
+            document.getElementById('live-users').textContent = `👥 ${liveUsers.toLocaleString()} Live Users`;
+        }
+
+        function updateBalance() {
+            balance += Math.random() * 0.75 - 0.25;
+            if(balance < 40) balance = 40;
+            document.getElementById('balance').textContent = `$${balance.toFixed(2)}`;
+        }
+
+        function copyReferral() {
+            const refCode = document.getElementById('ref-code');
+            navigator.clipboard.writeText(refCode.value).then(() => {
+                const btn = event.target;
+                const original = btn.textContent;
+                btn.textContent = '✅ Copied!';
+                btn.style.background = '#059669';
+                setTimeout(() => {
+                    btn.textContent = original;
+                    btn.style.background = '';
+                }, 2000);
+            });
+        }
+
+        function shareWhatsApp() {
+            const refCode = document.getElementById('ref-code').value;
+            const url = `https://wa.me/?text=🚀 Discover WealthOS! Daily Auto Earnings 💰 ${refCode}`;
+            window.open(url, '_blank');
+        }
+        function shareTelegram() {
+            const refCode = document.getElementById('ref-code').value;
+            const url = `https://t.me/share/url?url=${refCode}&text=WealthOS - Daily Auto Earnings 💰`;
+            window.open(url, '_blank');
+        }
+        function shareTwitter() {
+            const refCode = document.getElementById('ref-code').value;
+            const url = `https://twitter.com/intent/tweet?text=🚀 WealthOS - Daily Auto Earnings! 💰&url=${refCode}`;
+            window.open(url, '_blank');
+        }
+
+        let deferredPrompt;
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+        });
+
+        function installPWA() {
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                deferredPrompt.userChoice.then((choiceResult) => {
+                    if (choiceResult.outcome === 'accepted') {
+                        console.log('User accepted the install prompt');
+                    }
+                    deferredPrompt = null;
+                });
+            } else {
+                alert('📱 Tap Share in browser → "Install App"');
+            }
+        }
+
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('data:text/javascript;base64,' + btoa(`
+                self.addEventListener('install', e => {
+                    self.skipWaiting();
+                });
+                self.addEventListener('activate', e => {
+                    self.clients.claim();
+                });
+            `));
+        }
+
+        document.addEventListener('visibilitychange', () => {
+            if (!document.hidden) {
+                updateLiveCounter();
+                updateBalance();
+            }
+        });
+
+        if (isLoggedIn) {
+            showViralPanel();
+            setTimeout(() => {
+                closePanel();
+            }, 5000);
+        }
+
+        setInterval(updateLiveCounter, 12000);
+        setInterval(updateBalance, 25000);
+    </script>
+
+    <script type="module" src="/index.tsx"></script>
+</body>
+</html>
