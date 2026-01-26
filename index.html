@@ -102,19 +102,63 @@
             position: fixed;
             top: 20px; right: 20px;
             z-index: 1000;
-            max-width: 350px;
+            max-width: 300px;
+            opacity: 0;
+            transform: translateX(100%);
+            animation: slideIn 0.5s ease-out forwards;
+        }
+        @keyframes slideIn {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        @keyframes slideOut {
+            to {
+                opacity: 0;
+                transform: translateX(100%);
+            }
+        }
+        .viral-panel.closing {
+            animation: slideOut 0.3s ease-in forwards;
+        }
+        .viral-panel .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(255,255,255,0.1);
+            border: none;
+            color: white;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+        .viral-panel .close-btn:hover {
+            background: rgba(239,68,68,0.3);
+            transform: scale(1.1);
         }
         .live-users-panel {
             background: rgba(6, 182, 212, 0.15);
             backdrop-filter: blur(15px);
             border: 1px solid rgba(6, 182, 212, 0.3);
-            border-radius: 20px;
-            padding: 20px;
-            margin-bottom: 15px;
-            box-shadow: 0 20px 40px rgba(6, 182, 212, 0.1);
+            border-radius: 16px;
+            padding: 16px;
+            margin-bottom: 12px;
+            box-shadow: 0 15px 30px rgba(6, 182, 212, 0.1);
+            animation: pulse-glow 2s infinite ease-in-out;
+        }
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 15px 30px rgba(6, 182, 212, 0.1); }
+            50% { box-shadow: 0 15px 40px rgba(6, 182, 212, 0.25); }
         }
         .balance-display {
-            font-size: 2em;
+            font-size: 1.6em;
             font-weight: 800;
             background: linear-gradient(45deg, #10b981, #f59e0b);
             -webkit-background-clip: text;
@@ -124,36 +168,41 @@
         .referral-btn {
             background: linear-gradient(45deg, #10b981, #059669);
             border: none;
-            padding: 12px 24px;
-            border-radius: 25px;
+            padding: 10px 20px;
+            border-radius: 20px;
             color: white;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s;
             width: 100%;
-            margin-top: 10px;
+            margin-top: 8px;
+            font-size: 0.9em;
         }
         .referral-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.4);
+            box-shadow: 0 8px 20px rgba(16, 185, 129, 0.4);
         }
         .share-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            margin-top: 15px;
+            gap: 8px;
+            margin-top: 12px;
         }
         .share-btn {
             background: rgba(255,255,255,0.1);
             border: 1px solid rgba(255,255,255,0.2);
-            padding: 10px;
-            border-radius: 15px;
+            padding: 8px;
+            border-radius: 12px;
             text-decoration: none;
             color: white;
-            font-size: 0.9em;
+            font-size: 0.8em;
             transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
         }
-        .share-btn:hover { background: rgba(255,255,255,0.2); }
+        .share-btn:hover { background: rgba(255,255,255,0.2); transform: translateY(-1px); }
     </style>
 <script type="importmap">
 {
@@ -171,19 +220,20 @@
 </script>
 </head>
 <body>
-    <div class="viral-panel">
+    <div class="viral-panel" id="viralPanel">
+        <button class="close-btn" onclick="closePanel()">×</button>
         <div class="live-users-panel">
-            <div id="live-users" style="font-size: 1.1em; font-weight: 700;">👥 2,847 Live Users</div>
-            <div id="balance" class="balance-display" style="margin-top: 10px;">$47.23</div>
+            <div id="live-users" style="font-size: 1em; font-weight: 700;">👥 2,847 Live Users</div>
+            <div id="balance" class="balance-display" style="margin-top: 8px;">$47.23</div>
         </div>
         
         <div class="live-users-panel">
-            <div style="font-weight: 600; margin-bottom: 10px;">💰 Referral Program</div>
-            <div style="font-size: 0.9em; opacity: 0.9; margin-bottom: 15px;">
+            <div style="font-weight: 600; margin-bottom: 8px; font-size: 0.95em;">💰 Referral Program</div>
+            <div style="font-size: 0.85em; opacity: 0.9; margin-bottom: 12px;">
                 Invite 5 friends = <span style="color: #f59e0b;">$50 Free</span>
             </div>
             <input id="ref-code" type="text" value="YOURCODE123" readonly 
-                   style="padding:8px 12px; border-radius:12px; border:1px solid rgba(255,255,255,0.2); background:rgba(255,255,255,0.1); color:white; width:100%; margin-bottom:10px;">
+                   style="padding:6px 10px; border-radius:10px; border:1px solid rgba(255,255,255,0.2); background:rgba(255,255,255,0.1); color:white; width:100%; margin-bottom:8px; font-size:0.85em;">
             <button class="referral-btn" onclick="copyReferral()">📋 Copy Link</button>
             
             <div class="share-grid">
@@ -205,28 +255,43 @@
     <div id="root"></div>
     
     <script>
+        let isLoggedIn = true;
         let liveUsers = 2847;
+        let balance = 47.23;
+        const currentUrl = window.location.origin + window.location.pathname;
+
+        function showViralPanel() {
+            const panel = document.getElementById('viralPanel');
+            panel.style.display = 'block';
+        }
+
+        function closePanel() {
+            const panel = document.getElementById('viralPanel');
+            panel.classList.add('closing');
+            setTimeout(() => {
+                panel.style.display = 'none';
+                panel.classList.remove('closing');
+            }, 300);
+        }
+
         function updateLiveCounter() {
             liveUsers += Math.floor(Math.random() * 150 - 75);
             if(liveUsers < 2000) liveUsers = 2000;
             document.getElementById('live-users').textContent = 
                 `👥 ${liveUsers.toLocaleString()} Live Users`;
         }
-        setInterval(updateLiveCounter, 12000);
 
-        let balance = 47.23;
         function updateBalance() {
             balance += Math.random() * 0.75 - 0.25;
             if(balance < 40) balance = 40;
             document.getElementById('balance').textContent = `$${balance.toFixed(2)}`;
         }
-        setInterval(updateBalance, 25000);
 
         function copyReferral() {
             const refCode = document.getElementById('ref-code');
             refCode.select();
             refCode.setSelectionRange(0, 99999);
-            navigator.clipboard.writeText(refCode.value).then(() => {
+            navigator.clipboard.writeText(`${currentUrl}/YOURCODE123`).then(() => {
                 const btn = event.target;
                 const original = btn.textContent;
                 btn.textContent = '✅ Copied!';
@@ -239,15 +304,15 @@
         }
 
         function shareWhatsApp() {
-            const url = 'https://wa.me/?text=🚀 Discover WealthOS! Daily Auto Earnings 💰 https://getwealthos.icu/YOURCODE123';
+            const url = `https://wa.me/?text=🚀 Discover WealthOS! Daily Auto Earnings 💰 ${currentUrl}/YOURCODE123`;
             window.open(url, '_blank');
         }
         function shareTelegram() {
-            const url = 'https://t.me/share/url?url=https://getwealthos.icu/YOURCODE123&text=WealthOS - Daily Auto Earnings 💰';
+            const url = `https://t.me/share/url?url=${currentUrl}/YOURCODE123&text=WealthOS - Daily Auto Earnings 💰`;
             window.open(url, '_blank');
         }
         function shareTwitter() {
-            const url = 'https://twitter.com/intent/tweet?text=🚀 WealthOS - Daily Auto Earnings! 💰&url=https://getwealthos.icu/YOURCODE123';
+            const url = `https://twitter.com/intent/tweet?text=🚀 WealthOS - Daily Auto Earnings! 💰&url=${currentUrl}/YOURCODE123`;
             window.open(url, '_blank');
         }
 
@@ -288,6 +353,16 @@
                 updateBalance();
             }
         });
+
+        if (isLoggedIn) {
+            showViralPanel();
+            setTimeout(() => {
+                closePanel();
+            }, 5000);
+        }
+
+        setInterval(updateLiveCounter, 12000);
+        setInterval(updateBalance, 25000);
     </script>
 
     <script type="module" src="/index.tsx"></script>
