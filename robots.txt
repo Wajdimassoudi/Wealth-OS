@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://getwealthos.icu/sitemap.xml
